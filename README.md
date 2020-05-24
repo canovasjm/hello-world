@@ -1,2 +1,4 @@
 # hello-world
-sandbox repository to test git functions
+This is a sandbox repository to test `git` functions.
+
+
