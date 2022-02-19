@@ -2,3 +2,13 @@
 
 # hello-world
 This is a sandbox repository to test `git` functions.
+
+# git workflow  
+
+```bash
+git checkout -b experimental 
+git add .
+git commit -m "..."
+git checkout main
+git merge experimental
+```
