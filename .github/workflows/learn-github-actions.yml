@@ -2,13 +2,19 @@ name: Learn Github Actions
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   
 jobs:
-  build-and-push-docker:
+  learn-github-actions:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name }} == "pull_request"
+    run: echo "IMAGE_TAG=dev"
+    env:
+      IMAGE_TAG: dev
+    # env:
+    #   IMAGE_TAG: latest
 
     steps:
     
@@ -30,4 +36,4 @@ jobs:
     - name: Echo env var
       run: |
         echo "Tagging image as ${{ env.IMAGE_TAG }}"
-        
+        echo "Tagging image as $IMAGE_TAG"
