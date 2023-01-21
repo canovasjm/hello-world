@@ -10,9 +10,9 @@ jobs:
   learn-github-actions:
     runs-on: ubuntu-latest
     if: ${{ github.event_name }} == "pull_request"
-      run: echo "IMAGE_TAG=dev"
-      env:
-        IMAGE_TAG: dev
+    run: echo "IMAGE_TAG=dev"
+    env:
+      IMAGE_TAG: dev
     # env:
     #   IMAGE_TAG: latest
 
