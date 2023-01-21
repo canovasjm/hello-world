@@ -9,6 +9,8 @@ on:
 jobs:
   learn-github-actions:
     runs-on: ubuntu-latest
+    env:
+      IMAGE_TAG: latest
 
     steps:
     
