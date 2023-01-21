@@ -8,7 +8,7 @@ This is a sandbox repository to test `git` functions.
 ```bash
 git checkout -b experimental 
 git add .
-git commit -m "..."
+git commit -m "message"
 git checkout main
 git merge experimental
 ```
