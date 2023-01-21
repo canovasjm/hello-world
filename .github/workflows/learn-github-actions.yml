@@ -1,11 +1,33 @@
-name: learn-github-actions
-on: [push]
-jobs:
-  check-bats-version:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g bats
-      - run: bats -v
+name: Learn Github Actions
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  
+jobs:
+  build-and-push-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Check if event is PR
+      if: ${{ github.event_name }} == "pull_request"
+      run: echo "IMAGE_TAG=dev"
+      env:
+        IMAGE_TAG: dev
+
+    # - name: Check if event is push
+    #   if: ${{ github.event_name }} == "push"
+    #   run: echo "IMAGE_TAG=latest"
+    #   env:
+    #     IMAGE_TAG: latest
+
+    - name: Echo env var
+      run: |
+        echo "Tagging image as ${{ env.IMAGE_TAG }}"
+        
